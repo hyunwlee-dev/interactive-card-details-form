@@ -1,0 +1,65 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Typography" />
+
+export const typography = {
+  type: {
+    primary: 'Space Grotesk, sans-serif',
+  },
+  weight: {
+    medium: '500',
+  },
+  size: {
+    headingXL: 28,
+    headingL: 18,
+    bodyL: 14,
+    bodyM: 12,
+    bodyS: 12,
+  },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+## Rubik
+
+### Heading XL (Medium)
+<Typeset
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.medium}
+  fontSizes={[Number(typography.size.headingXL)]}
+  sampleText={SampleText}
+/>
+
+### Heading L (Bold)
+<Typeset
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.medium}
+  fontSizes={[Number(typography.size.headingL)]}
+  sampleText={SampleText}
+/>
+
+### Body L (Regular)
+<Typeset
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.medium}
+  fontSizes={[Number(typography.size.bodyL)]}
+  sampleText={SampleText}
+/>
+
+### Body M
+<Typeset
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.medium}
+  fontSizes={[Number(typography.size.bodyM)]}
+  sampleText={SampleText}
+/>
+
+### Body S
+<Typeset
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.medium}
+  fontSizes={[Number(typography.size.bodyS)]}
+  sampleText={SampleText}
+/>
