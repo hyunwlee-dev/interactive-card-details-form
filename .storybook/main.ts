@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
+import path from "path";
 
 const config: StorybookConfig = {
   stories: [
@@ -20,5 +22,12 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   staticDirs: ["../public"],
+  webpackFinal: async config => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = config.resolve.alias || {};
+    config.resolve.alias['@'] = path.resolve(__dirname, '../');
+    config?.plugins?.push(new VanillaExtractPlugin());
+    return config
+  }
 };
 export default config;

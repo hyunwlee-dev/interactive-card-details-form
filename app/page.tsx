@@ -1,4 +1,5 @@
 import { styles } from "./page.css";
+import { Button } from "./ui/button";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <div className={styles.breakpointsTest}>
         breakpoints test
       </div>
+      <Button textContent="Confirm" />
     </main>
   );
 }

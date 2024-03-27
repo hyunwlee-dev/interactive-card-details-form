@@ -18,6 +18,14 @@ type Story = StoryObj<typeof meta>;
 
 export const PrimaryButton: Story = {
   args: {
-    textContent: 'chromatic build test',
+    variant: 'primary',
+    textContent: 'Primary Button',
+  },
+};
+
+export const SecondaryButton: Story = {
+  args: {
+    variant: 'secondary',
+    textContent: 'Secondary Button',
   },
 };
