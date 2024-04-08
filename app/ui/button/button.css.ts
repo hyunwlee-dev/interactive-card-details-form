@@ -5,7 +5,8 @@ const button = style({
   width: "100%",
   height: "2.944rem",
   borderRadius: "0.5rem",
-  fontWeight: "500"
+  fontWeight: "500",
+  letterSpacing: "1px"
 });
 
 const primary = style({

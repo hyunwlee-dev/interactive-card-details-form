@@ -9,7 +9,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * primary or secondary
    */
   variant?: 'primary' | 'secondary';
-  textContent?: string;
+  textContent: string;
 }
 
 /**

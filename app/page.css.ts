@@ -14,4 +14,14 @@ const breakpointsTest = style({
   }
 });
 
-export const styles = { breakpointsTest }
+const form = style({
+  outline: "3px solid blue",
+  marginTop: "24rem"
+});
+
+const styles = {
+  breakpointsTest,
+  form
+};
+
+export default styles;
