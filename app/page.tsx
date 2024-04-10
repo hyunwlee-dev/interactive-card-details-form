@@ -1,10 +1,10 @@
 "use client";
-import styles from "./page.css";
 import { Form } from "@/app/ui/form";
 import { option } from "@/app/utils/validator";
 import { Button } from "./ui/button";
+import styles from "./page.css";
 
-enum FormValue {
+export enum FormValue {
   CARD_HOLDER_NAME = 'cardHolderName',
   CARD_NUMBER = 'cardNumber',
   MM = 'mm',
@@ -28,6 +28,7 @@ export default function Home() {
         className={styles.form}
       >
         <Form.Input
+          className={styles.cardholderName}
           label='cardholder name'
           field={FormValue.CARD_HOLDER_NAME}
           options={{
@@ -42,6 +43,7 @@ export default function Home() {
           placeholder={option[FormValue.CARD_HOLDER_NAME].placeholder}
         />
         <Form.Input
+          className={styles.cardNumber}
           label='card number'
           field={FormValue.CARD_NUMBER}
           options={{
@@ -55,52 +57,62 @@ export default function Home() {
           inputMode="text"
           placeholder={option[FormValue.CARD_NUMBER].placeholder}
         />
-        <fieldset>
-          <legend>exp. date (mm/yy)</legend>
+        <div className={styles.dateCvcWrapper}>
+          <fieldset className={styles.dateFieldset}>
+            <legend className={styles.dateLegend}>exp. date (mm/yy)</legend>
+            <Form.Input
+              className={styles.mm}
+              label='mm'
+              field={FormValue.MM}
+              options={{
+                required: option[FormValue.MM].requireMessage,
+                pattern: {
+                  value: option[FormValue.MM].pattern,
+                  message: option[FormValue.MM].patternMessage
+                }
+              }}
+              type='text'
+              inputMode="numeric"
+              placeholder={option[FormValue.MM].placeholder}
+              labelSrOnly
+              maxLength={2}
+            />
+            <Form.Input
+              className={styles.yy}
+              label='yy'
+              field={FormValue.YY}
+              options={{
+                required: option[FormValue.YY].requireMessage,
+                pattern: {
+                  value: option[FormValue.YY].pattern,
+                  message: option[FormValue.YY].patternMessage
+                }
+              }}
+              type='text'
+              inputMode="numeric"
+              placeholder={option[FormValue.YY].placeholder}
+              labelSrOnly
+              maxLength={2}
+            />
+          </fieldset>
           <Form.Input
-            label='mm'
-            field={FormValue.MM}
+            className={styles.cvc}
+            label='cvc'
+            field={FormValue.CVC}
             options={{
-              required: option[FormValue.MM].requireMessage,
+              required: option[FormValue.CVC].requireMessage,
               pattern: {
-                value: option[FormValue.MM].pattern,
-                message: option[FormValue.MM].patternMessage
+                value: option[FormValue.CVC].pattern,
+                message: option[FormValue.CVC].patternMessage
               }
             }}
             type='text'
             inputMode="numeric"
-            placeholder={option[FormValue.MM].placeholder}
+            placeholder={option[FormValue.CVC].placeholder}
+            maxLength={3}
           />
-          <Form.Input
-            label='yy'
-            field={FormValue.YY}
-            options={{
-              required: option[FormValue.YY].requireMessage,
-              pattern: {
-                value: option[FormValue.YY].pattern,
-                message: option[FormValue.YY].patternMessage
-              }
-            }}
-            type='text'
-            inputMode="numeric"
-            placeholder={option[FormValue.YY].placeholder}
-          />
-        </fieldset>
-        <Form.Input
-          label='cvc'
-          field={FormValue.CVC}
-          options={{
-            required: option[FormValue.CVC].requireMessage,
-            pattern: {
-              value: option[FormValue.CVC].pattern,
-              message: option[FormValue.CVC].patternMessage
-            }
-          }}
-          type='text'
-          inputMode="numeric"
-          placeholder={option[FormValue.CVC].placeholder}
-        />
-        <Button type='submit' textContent="Confirm" />
+        </div>
+        <Button className={styles.submitBtn} type='submit' textContent="Confirm" />
       </Form>
     </main >
   );

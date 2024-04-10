@@ -13,9 +13,15 @@ export const vars = createThemeContract({
     lightGrayishViolet: null,
     darkGrayishViolet: null,
     veryDarkViolet: null
+  },
+  font: {
+    bodyS: null,
+    bodyM: null,
+    bodyL: null,
+    headingL: null,
+    headingXL: null
   }
 });
-
 
 createGlobalTheme(":root", vars, {
   primary: {
@@ -28,4 +34,11 @@ createGlobalTheme(":root", vars, {
     darkGrayishViolet: 'hsl(279, 6%, 55%)',
     veryDarkViolet: 'hsl(278, 68%, 11%)'
   },
+  font: {
+    bodyS: "12px",
+    bodyM: "12px",
+    bodyL: "14px",
+    headingL: "18px",
+    headingXL: "28px",
+  }
 });

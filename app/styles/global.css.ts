@@ -3,13 +3,12 @@ import { $breakpoints } from "./utils";
 
 globalStyle('*, *::before, *::after', {
   boxSizing: "border-box",
+  fontSize: '18px',
   padding: "0",
   margin: "0",
 });
 
 globalStyle('html, body', {
-  minHeight: '100vh',
-  fontSize: '18px',
   fontWeight: '500',
 });
 
@@ -43,4 +42,10 @@ globalStyle('button', {
   background: 'transparent',
   border: 'none',
   cursor: 'pointer'
+});
+
+globalStyle('fieldset', {
+  border: 'none',
+  margin: '0',
+  padding: '0',
 });

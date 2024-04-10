@@ -55,13 +55,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   const { register, formState: { errors } } = useFormContext();
   const { ref, ...rest } = register(field, options);
   return (
-    <div>
+    <div className={clsx(styles.inputWrapper, className)}>
       <label
-        className={clsx({ [styles.srOnly]: labelSrOnly })}
+        className={clsx(styles.label, { [styles.srOnly]: labelSrOnly })}
         htmlFor={field}>
         {label}
       </label>
       <input
+        className={clsx(styles.input, { [styles.inputError]: errors[field]?.message })}
         ref={(e) => {
           ref(e);
           if (!reference)
@@ -77,7 +78,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
         {...props}
       />
       {errors[field]?.message && (
-        <span>
+        <span className={styles.error}>
           {errors[field]?.message as string}
         </span>
       )}
