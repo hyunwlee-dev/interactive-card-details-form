@@ -4,7 +4,7 @@ import { option } from "@/app/utils/validator";
 import { Button } from "./ui/button";
 import styles from "./page.css";
 
-export enum FormValue {
+enum FormValue {
   CARD_HOLDER_NAME = 'cardHolderName',
   CARD_NUMBER = 'cardNumber',
   MM = 'mm',

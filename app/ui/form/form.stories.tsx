@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Form } from '.';
-import { FormValue } from '@/app/page';
 import { option } from '@/app/utils/validator';
 import styles from '@/app/page.css';
 import { Button } from '../button';
@@ -20,6 +19,14 @@ export default meta;
 
 const handleSubmit = async (data: FormValues) => {
   console.log(`data: ${JSON.stringify(data)}`);
+}
+
+enum FormValue {
+  CARD_HOLDER_NAME = 'cardHolderName',
+  CARD_NUMBER = 'cardNumber',
+  MM = 'mm',
+  YY = 'yy',
+  CVC = 'cvc'
 }
 
 export const CardDetailsForm: StoryObj<typeof Form> = {
