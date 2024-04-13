@@ -2,6 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "@/app/styles/theme.css";
 import { $breakpoints } from "./styles/utils";
 
+const main = style({});
+
 const breakpointsTest = style({
   background: `${vars.netural.lightGrayishViolet}`,
   '@media': {
@@ -15,7 +17,7 @@ const breakpointsTest = style({
 });
 
 const form = style({
-  marginTop: "15rem",
+  marginTop: "18rem",
   padding: '0 1.333rem'
 });
 
@@ -68,6 +70,7 @@ const submitBtn = style({
 });
 
 const styles = {
+  main,
   breakpointsTest,
   form,
   dateCvcWrapper,
