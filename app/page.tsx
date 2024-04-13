@@ -1,17 +1,21 @@
 "use client";
 import { useState } from "react";
 import { FrontCard, BackCard } from "@/app/ui/payment-card";
-import { CardDetailsForm } from "./ui/card-details-form";
+import { CardDetailsForm } from "@/app/ui/card-details-form";
+import { Completed } from "@/app/ui/completed";
+import If from "@/app/utils/if";
 import styles from "./page.css";
 
 export default function Home() {
-  const [cardInfo, setCardInfo] = useState({
+  const initInfo = {
     cardholderName: 'JANE APPLESEED',
     cardNumber: '0000 0000 0000 0000',
     mm: '00',
     yy: '00',
     cvc: '000',
-  });
+  }
+
+  const [cardInfo, setCardInfo] = useState({ ...initInfo });
 
   const handleSubmit = async (data: FormValues) => {
     const { cardHolderName, cardNumber, mm, yy, cvc } = data;
@@ -24,6 +28,14 @@ export default function Home() {
     });
   }
 
+  const reset = () => {
+    setCardInfo({ ...initInfo });
+  }
+
+  const isCompleted = () => {
+    return cardInfo.mm !== '00';
+  }
+
   return (
     <main className={styles.main}>
       <FrontCard
@@ -33,9 +45,14 @@ export default function Home() {
         yy={cardInfo.yy}
       />
       <BackCard cvc={cardInfo.cvc} />
-      <CardDetailsForm
-        handleSubmit={handleSubmit}
-      />
+      <If condition={!isCompleted()}>
+        <If.Then>
+          <CardDetailsForm handleSubmit={handleSubmit} />
+        </If.Then>
+        <If.Else>
+          <Completed reset={reset} />
+        </If.Else>
+      </If>
     </main>
   );
 }

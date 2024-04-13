@@ -1,4 +1,5 @@
 import { vars } from "@/app/styles/theme.css";
+import { $breakpoints } from "@/app/styles/utils";
 import { style } from "@vanilla-extract/css";
 
 const backSide = style({
@@ -11,6 +12,17 @@ const backSide = style({
   left: '50%',
   transform: 'translateX(-40%)',
   zIndex: "-100",
+  '@media': {
+    [$breakpoints.laptop]: {
+      top: '50%',
+      left: '30%',
+    },
+    [$breakpoints.desktop]: {
+      width: "447px",
+      height: "245px",
+      top: '50%',
+    },
+  }
 });
 
 const cvc = style({
@@ -19,7 +31,15 @@ const cvc = style({
   top: '4.05rem',
   right: '2rem',
   fontSize: '9px',
-  letterSpacing: '1.29px'
+  letterSpacing: '1.29px',
+  '@media': {
+    [$breakpoints.desktop]: {
+      top: '6.25rem',
+      right: '54px',
+      fontSize: '14px'
+    },
+  }
+
 });
 
 const styles = {

@@ -1,4 +1,5 @@
 import { vars } from "@/app/styles/theme.css";
+import { $breakpoints } from "@/app/styles/utils";
 import { style } from "@vanilla-extract/css";
 
 const frontSide = style({
@@ -11,12 +12,31 @@ const frontSide = style({
   left: '50%',
   transform: 'translateX(-60%)',
   zIndex: "-100",
+  '@media': {
+    [$breakpoints.laptop]: {
+      top: '30%',
+      left: '30%',
+    },
+    [$breakpoints.desktop]: {
+      width: "447px",
+      height: "245px",
+      top: '20%',
+    },
+  }
 });
 
 const logo = style({
   position: 'absolute',
   top: '17.6px',
   left: '19px',
+  '@media': {
+    [$breakpoints.desktop]: {
+      width: "84px",
+      height: "47px",
+      top: '28px',
+      left: '32px',
+    },
+  }
 });
 
 const cardholderName = style({
@@ -25,7 +45,14 @@ const cardholderName = style({
   bottom: '19.6px',
   left: '19px',
   fontSize: '9px',
-  letterSpacing: '1.29px'
+  letterSpacing: '1.29px',
+  '@media': {
+    [$breakpoints.desktop]: {
+      left: '32px',
+      bottom: '26.5px',
+      fontSize: '14px',
+    },
+  }
 });
 
 const cardNumber = style({
@@ -33,7 +60,14 @@ const cardNumber = style({
   color: vars.netural.white,
   bottom: '48.6px',
   left: '19px',
-  letterSpacing: '1.29px'
+  letterSpacing: '1.29px',
+  '@media': {
+    [$breakpoints.desktop]: {
+      left: '32px',
+      bottom: '70px',
+      fontSize: '28px'
+    },
+  }
 });
 
 const date = style({
@@ -42,7 +76,14 @@ const date = style({
   bottom: '19.6px',
   right: '19px',
   fontSize: '9px',
-  letterSpacing: '1.29px'
+  letterSpacing: '1.29px',
+  '@media': {
+    [$breakpoints.desktop]: {
+      right: '32px',
+      bottom: '26.5px',
+      fontSize: '14px',
+    },
+  }
 });
 
 const styles = {
