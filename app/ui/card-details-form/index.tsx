@@ -1,10 +1,12 @@
 import { Form } from "@/app/ui/form";
-import styles from "./card-details-form.css";
 import { option } from "@/app/utils/validator";
-import { Button } from "../button";
+import { Button } from "@/app/ui/button";
+import clsx from "clsx";
+import styles from "./card-details-form.css";
 
 interface CardDetailsFormProps {
   handleSubmit: (data: FormValues) => Promise<void>;
+  className?: string;
 }
 
 enum FormValue {
@@ -16,12 +18,13 @@ enum FormValue {
 }
 
 export function CardDetailsForm({
+  className,
   handleSubmit,
 }: CardDetailsFormProps) {
   return (
     <Form
       onSubmit={handleSubmit}
-      className={styles.form}
+      className={clsx(styles.form, className)}
     >
       <Form.Input
         className={styles.cardholderName}

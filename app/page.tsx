@@ -47,7 +47,10 @@ export default function Home() {
       <BackCard cvc={cardInfo.cvc} />
       <If condition={!isCompleted()}>
         <If.Then>
-          <CardDetailsForm handleSubmit={handleSubmit} />
+          <CardDetailsForm
+            className={styles.cardDetailsForm}
+            handleSubmit={handleSubmit}
+          />
         </If.Then>
         <If.Else>
           <Completed reset={reset} />
